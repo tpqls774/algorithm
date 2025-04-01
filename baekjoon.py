@@ -1,3 +1,5 @@
+# 30802번 웰컴키트
+
 n = int(input())
 size = list(map(int, input().split()))
 t, p = map(int, input().split())
