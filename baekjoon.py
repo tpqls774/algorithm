@@ -1,18 +1,22 @@
-# 30802번 웰컴키트
-
 n = int(input())
-size = list(map(int, input().split()))
-t, p = map(int, input().split())
-min_b = 0
+n_li = list(map(int, input().split()))
+m = int(input())
+m_li = list(map(int, input().split()))
+n_li.sort()
 
-for i in size:
-    if i == 0:
-        continue
-    if t >= i:
-        min_b += 1
-    else:
-        min_b += (i + t - 1) // t
+def binary_search(arr, target, start, end):
+    while start <= end:
+        mid = (start + end) // 2
+
+        if arr[mid] == target:
+            return 1
+        elif arr[mid] > target:
+            end = mid - 1
+        else:
+            start = mid + 1
+    return 0
 
 
-print(min_b)
-print(n//p, n%p)
+for i in m_li:
+    print(binary_search(n_li, i, 0, n - 1))
+
