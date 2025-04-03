@@ -1,8 +1,21 @@
-n, k  = map(int, input().split())
+import sys
+n = int(input())
+n_li = list(map(int, sys.stdin.readline().split()))
+m = int(input())
+m_li = list(map(int, sys.stdin.readline().split()))
+count = 0
 
-def bino_coef(n, k):
-    if k == 0 or n == k:
-        return 1
-    return bino_coef(n - 1, k) + bino_coef(n - 1, k - 1)
+dic = {}
 
-print(bino_coef(n, k))
+for i in n_li:
+    if i in dic:
+        dic[i] += 1
+    else:
+        dic[i] = 1
+
+for i in m_li:
+    if i in dic:
+        print(dic[i], end=" ")
+    else:
+        print(0, end=" ")
+
