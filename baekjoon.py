@@ -1,21 +1,13 @@
-import sys
 n = int(input())
-n_li = list(map(int, sys.stdin.readline().split()))
-m = int(input())
-m_li = list(map(int, sys.stdin.readline().split()))
-count = 0
+s_list = {}
 
-dic = {}
+for i in range(n):
+    s = input()
+    for j in range(len(s)):
+        if i == 0:
+            s_list[j] = s[j]
+        if s_list[j] != s[j]:
+            s_list[j] = '?'
 
-for i in n_li:
-    if i in dic:
-        dic[i] += 1
-    else:
-        dic[i] = 1
-
-for i in m_li:
-    if i in dic:
-        print(dic[i], end=" ")
-    else:
-        print(0, end=" ")
-
+for value in s_list.values():
+    print(value, end='')
