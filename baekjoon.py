@@ -1,13 +1,12 @@
-n = int(input())
-s_list = {}
+t = int(input())
+nf, rf = 1, 1
 
-for i in range(n):
-    s = input()
-    for j in range(len(s)):
-        if i == 0:
-            s_list[j] = s[j]
-        if s_list[j] != s[j]:
-            s_list[j] = '?'
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
 
-for value in s_list.values():
-    print(value, end='')
+for i in range(t):
+    n, m = map(int, input().split())
+    print(int(factorial(m) / (factorial(m-n) * factorial(n))))
