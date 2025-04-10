@@ -1,12 +1,15 @@
-t = int(input())
-nf, rf = 1, 1
+x = int(input())
 
-def factorial(n):
-    if n == 0:
-        return 1
-    else:
-        return n * factorial(n-1)
+stick = [64, 32, 16, 8, 4, 2, 1]
+result = 0
+count = 0
 
-for i in range(t):
-    n, m = map(int, input().split())
-    print(int(factorial(m) / (factorial(m-n) * factorial(n))))
+for i in stick:
+    if x >= i:
+        if result + i <= x:
+            result += i
+            count += 1
+    elif result == x:
+        break
+
+print(count)
